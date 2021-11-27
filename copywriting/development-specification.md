@@ -79,7 +79,6 @@ start 开始/finish 完成
 enter 进入/exit 退出,
 abort 放弃/quit 离开
 obsolete 废弃/depreciate 废旧,
-
 ```
 
 5. 常量命名全部大写，单词间用下划线隔开 **_MAX_STOCK_COUNT_**
