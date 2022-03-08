@@ -81,4 +81,47 @@
 
 最后推送开发分支至远程：git push
 
+#### 切换代码源
 
+1. 推代码 拉取 master 代码
+
+2. 切到功能分支 git pull
+
+3. 重命名当前仓库的代码源为 【name】 git remote rename origin 【name】
+
+4. 添加 【新的例如：maikeos】 的代码源并命名为【origin 默认的名字】 git remote add origin 【远程仓库的地址】
+
+5. 查看当前代码仓的所有远程仓库 git remote -v
+
+6. 在其他分支操作时，第一次推送请使用（[branchName]为分支名），之后即可使用 git push -u origin task-8
+
+#### 换仓库推代码/关联多个代码仓
+
+1. 切到关联别的仓库的代码 例如：git checkout j-test 这个【j-test】是关联的别的仓库的代码
+
+2. git merge test
+
+3. 推送代码 git push jinjia HEAD:test 这个【jinjia】相当于【origin】是仓库的名称 【HEAD:test】推送代码到最新的代码到【test 这个 test 是推送到劲嘉仓库的那个分支 test 可修改】
+
+#### 合并冲突提示
+
+```js
+git merge test
+Auto-merging src/page/quotation/quotation.jsx
+CONFLICT (content): Merge conflict in src/page/quotation/quotation.jsx
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+Accept Current Change  接受当前的变化
+Accept Incoming Change 接受传入的更改
+Accept Both Change  接受两者的改变
+Compare Changes  比较变化
+
+其中<<<<<<< Updated upstream到=======之间的代码是你拉取的别人的代码，=======到>>>>>>> Stashed changes是你自己本次修改的代码
+```
+
+##### 解决冲突
+
+首先找的要合并的分支 并且切到要被合并的分支 （要合并代码到 test 但是发现合并到 test 上有冲突）那么就要把要合并的分支 merge 下 找到冲突 并且解决
+
+之后直接 commit push 就可以了
