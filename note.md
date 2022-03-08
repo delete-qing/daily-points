@@ -22,6 +22,26 @@
 
 10. computed 计算属性 可以用来计算数组，状态 要记得使用 多使用计算属性
 
+11. 若是要改变字符串的分隔符 可以用 replaceAll 方法 a=a.repaceAll（‘，’，‘~’）这样就好了
+
+12. BEM 命名规范 （Block Element Modifier） 就是 css 规范
+
+13. js 的默认属性 $event arguments 找不到属性可以往这里面找 要仔细看 因为属性特别多
+
+14. 有时候一个事件 根据状态的不同调用接口/方法 如果直接调的话不行 可以换种思路 多写个方法只传值 然后接口可以在写一个方法 也就是把这些方法拆开 一个事件有个方法 而不是一个方法一个事件 有封装的思想也要有有拆开的思想
+
+15. - .env 是要加入代码版本管理的
+    - .env.local 本地运行的环境
+    - 这两个要保证变量名一致 若有需要加别的变量名需要说的
+
+16. 日常忘记日期的转化 i.value.format("HH:mm:ss") 对象转为字符串
+
+17. 初始化数据 range: data.range || [],
+
+18. vue antdesign 下拉框改变方向 :getPopupContainer="trigger => trigger.parentNode"
+
+19. 为什么获取数组某一条值用的是 arr[0]而不是 arr.0，是因为在 JavaScript 中，以数字开头的属性不能用点号引用，必须用方括号。
+
 #### v-model 事件
 
 - 首先传值的时候可以 v-model 数组
@@ -45,34 +65,3 @@
 1. ref active 都是设置响应式数据的 但是 ref 只能监听简单的数据类型（Number,String,Boolean,Underfined,Null）
 2. active 可以监听复杂类型数据（数组、对象 也就是 object）
 
-#### es6 的解构赋值可以这样用
-
-```js
-setup(){
-    const state =reactive(
-        {
-            name:'张',
-            age:18,
-        }
-    ),
-    const getData=()=>{
-       let {name,age} = state
-       if(name==18)  return;
-    }
-}
-```
-
-#### js 循环相加需要注意的是
-
-1. 在循环体外面定义一个字段【number】类型的字段，不然相加的时候回当成字符串的拼接
-
-2. let num = 0 ，初始化的时候定义为 0 不然会循环相加，当然如果上面的循环的字段本身就是【number】类型的就可以避免循环累加
-
-```js
-let num = 0;
-data.fees.forEach((i) => {
-  if (i.type == 3) {
-    num += i.cost_price;
-  }
-});
-```
